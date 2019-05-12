@@ -28,16 +28,17 @@ $breakpoints: (
   }
 }
 
-
-
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono');
 body {
   font-family: 'IBM Plex Mono', monospace;
   color: $dark;
-  padding: 48px;
+  padding: 4em;
   font-size: 16px;
   line-height: 1.5;
   background:  white;
+  @media (max-width: 480px) {
+    padding: 2em;
+  }
 }
 
 h1 {
@@ -103,28 +104,24 @@ a:hover::before {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: minmax(160px, 480px) minmax(20px, 560px) minmax(20px, 60px);
-  grid-template-areas: "app1 app2 app3" "app4 website1 website1" "website2 website2 others";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, minmax(320px, 460px));
+  //grid-template-areas: ". . ." ". . ." ". . .";
   grid-gap: 24px;
   > * {
-    background: white;
+    background: $light;
+    padding: 24px;
+    display: flex;
+    //justify-content: flex-end;
+    align-items: flex-end;
+    //min-width: 320px;
+    justify-self: stretch;
+    &.adyen {
+      background: green;
+      grid-column: 1 / span 2;
+    }
   }
 }
-
-.app1 { grid-area: app1; }
-
-.app2 { grid-area: app2; }
-
-.app3 { grid-area: app3; }
-
-.app4 { grid-area: app4; }
-
-.website1 { grid-area: website1; }
-
-.website2 { grid-area: website2; }
-
-.others { grid-area: others; }
 
 
 
