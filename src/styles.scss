@@ -63,6 +63,8 @@ section {
 
 .promo {
   font-size: 2em;
+  overflow: hidden;
+  max-width: 50ch;
   @include respond-to('small') { 
     font-size: 2em;
   }
